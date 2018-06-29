@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<trilateral.com.mowtogether.lib.common.widget.ProgressWheel
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:export="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/frame_white_color"
+    export:mow_matProg_barColor="@color/frame_btn_color"
+    export:mow_matProg_progressIndeterminate="true"/>

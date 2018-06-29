@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="300dp"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:background="@drawable/frame_shape_custom_dialog_bg"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
+
+    <TextView
+        android:paddingBottom="9dp"
+        android:id="@+id/tv_custom_alert_dialog_ensure_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/mow_text_color"
+        android:textSize="20sp"/>
+
+    <!--中间的内容部分-->
+    <TextView
+        android:layout_marginTop="20dp"
+        android:lineSpacingMultiplier="1.2"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/ll_custom_alert_dialog_ensure_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:textColor="@color/mow_text_hint_color"
+        android:textSize="15sp">
+    </TextView>
+
+    <View
+        style="@style/mow_line_horizontal"/>
+
+    <TextView
+        android:id="@+id/tv_custom_alert_dialog_ensure_ensure"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="@color/mow_btn_color"
+        android:textSize="18sp"/>
+</LinearLayout>

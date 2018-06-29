@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="300dp"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:gravity="center_horizontal"
+              android:background="@drawable/frame_shape_custom_dialog_bg"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_download_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:textColor="@color/mow_text_yellow_color"
+        android:textSize="20sp"/>
+
+    <trilateral.com.mowtogether.lib.common.widget.numberprogressbar.NumberProgressBar
+        app:mow_progress_reached_color="@color/mow_text_yellow_color"
+        app:mow_progress_max="100"
+        app:mow_progress_text_size="13sp"
+        app:mow_progress_text_color="@color/mow_text_yellow_color"
+        android:id="@+id/npb_download_progress"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/mow_line_color"/>
+
+    <!--中间的内容部分-->
+    <TextView
+        android:id="@+id/tv_download_cancel"
+        android:text="@string/mow_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/mow_text_yellow_color"
+        android:textSize="16sp">
+    </TextView>
+</LinearLayout>

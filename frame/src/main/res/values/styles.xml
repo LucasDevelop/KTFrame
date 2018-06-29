@@ -1,0 +1,232 @@
+<resources>
+
+    <style name="mow_AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/frame_white_color</item>
+        <item name="colorPrimaryDark">@color/frame_white_color</item>
+        <item name="colorAccent">@color/frame_main_tab_color</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/frame_white_color</item>
+        <item name="android:windowContentOverlay">@android:color/transparent</item>
+    </style>
+
+    <style name="mow_AppTheme_No_Translucent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <style name="mow_tool_bar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@color/frame_white_color</item>
+        <item name="android:id">@id/mow_toolbar</item>
+    </style>
+
+    <!-- 自定义Dialog -->
+    <style name="mow_Custom_Progress" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="mow_line_horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.1dp</item>
+        <item name="android:background">@color/frame_line_color</item>
+    </style>
+
+    <!--底部popup动画的style-->
+    <style name="mow_popup_animStyle">
+        <item name="android:windowEnterAnimation">@anim/mow_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/mow_bottom_out</item>
+    </style>
+
+    <style name="mow_Widget.MaterialProgressBar.ProgressBar.Horizontal" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:indeterminateDrawable">@null</item>
+        <item name="android:minHeight">16dp</item>
+        <item name="android:maxHeight">16dp</item>
+    </style>
+
+    <style name="mow_Widget.MaterialProgressBar.ProgressBar.Horizontal.NoPadding">
+        <item name="android:minHeight">4dp</item>
+        <item name="android:maxHeight">4dp</item>
+    </style>
+
+    <style name="mow_Widget.MaterialProgressBar.ProgressBar" parent="android:Widget.ProgressBar">
+        <item name="android:indeterminateDrawable">@null</item>
+        <!-- We have support for determinate circular progress drawable. -->
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:maxWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:maxHeight">48dp</item>
+    </style>
+
+    <style name="mow_Widget.MaterialProgressBar.ProgressBar.NoPadding">
+        <item name="android:minWidth">42dp</item>
+        <item name="android:maxWidth">42dp</item>
+        <item name="android:minHeight">42dp</item>
+        <item name="android:maxHeight">42dp</item>
+    </style>
+
+    <style name="mow_Widget.MaterialProgressBar.ProgressBar.Large">
+        <item name="android:minWidth">76dp</item>
+        <item name="android:maxWidth">76dp</item>
+        <item name="android:minHeight">76dp</item>
+        <item name="android:maxHeight">76dp</item>
+    </style>
+
+    <style name="mow_Widget.MaterialProgressBar.ProgressBar.Large.NoPadding">
+        <item name="android:minWidth">66.5dp</item>
+        <item name="android:maxWidth">66.5dp</item>
+        <item name="android:minHeight">66.5dp</item>
+        <item name="android:maxHeight">66.5dp</item>
+    </style>
+
+    <style name="mow_Widget.MaterialProgressBar.ProgressBar.Small">
+        <item name="android:minWidth">16dp</item>
+        <item name="android:maxWidth">16dp</item>
+        <item name="android:minHeight">16dp</item>
+        <item name="android:maxHeight">16dp</item>
+    </style>
+
+    <style name="mow_Widget.MaterialProgressBar.ProgressBar.Small.NoPadding">
+        <item name="android:minWidth">14dp</item>
+        <item name="android:maxWidth">14dp</item>
+        <item name="android:minHeight">14dp</item>
+        <item name="android:maxHeight">14dp</item>
+    </style>
+
+    <!--number_progress-->
+    <style name="mow_NumberProgressBar_Default">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+
+        <item name="mow_progress_max">100</item>
+        <item name="mow_progress_current">0</item>
+
+        <item name="mow_progress_unreached_color">#CCCCCC</item>
+        <item name="mow_progress_reached_color">#3498DB</item>
+
+        <item name="mow_progress_text_size">10sp</item>
+        <item name="mow_progress_text_color">#3498DB</item>
+
+        <item name="mow_progress_reached_bar_height">1.5dp</item>
+        <item name="mow_progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="mow_NumberProgressBar_Passing_Green">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+
+        <item name="mow_progress_max">100</item>
+        <item name="mow_progress_current">0</item>
+
+        <item name="mow_progress_unreached_color">#CCCCCC</item>
+        <item name="mow_progress_reached_color">#70A800</item>
+
+        <item name="mow_progress_text_size">10sp</item>
+        <item name="mow_progress_text_color">#70A800</item>
+
+        <item name="mow_progress_reached_bar_height">1.5dp</item>
+        <item name="mow_progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="mow_NumberProgressBar_Beauty_Red">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+
+        <item name="mow_progress_max">100</item>
+        <item name="mow_progress_current">0</item>
+
+        <item name="mow_progress_unreached_color">#CCCCCC</item>
+        <item name="mow_progress_reached_color">#FF3D7F</item>
+        <item name="mow_progress_text_size">10sp</item>
+        <item name="mow_progress_text_color">#FF3D7F</item>
+
+        <item name="mow_progress_reached_bar_height">1.5dp</item>
+        <item name="mow_progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="mow_NumberProgressBar_Warning_Red">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+
+        <item name="mow_progress_max">100</item>
+        <item name="mow_progress_current">0</item>
+
+        <item name="mow_progress_unreached_color">#CCCCCC</item>
+        <item name="mow_progress_reached_color">#E74C3C</item>
+        <item name="mow_progress_text_size">10sp</item>
+        <item name="mow_progress_text_color">#E74C3C</item>
+
+        <item name="mow_progress_reached_bar_height">1.5dp</item>
+        <item name="mow_progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="mow_NumberProgressBar_Relax_Blue">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+
+        <item name="mow_progress_max">100</item>
+        <item name="mow_progress_current">0</item>
+
+        <item name="mow_progress_unreached_color">#CCCCCC</item>
+        <item name="mow_progress_reached_color">#6DBCDB</item>
+        <item name="mow_progress_text_size">10sp</item>
+        <item name="mow_progress_text_color">#6DBCDB</item>
+
+        <item name="mow_progress_reached_bar_height">1.5dp</item>
+        <item name="mow_progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="mow_NumberProgressBar_Grace_Yellow">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+
+        <item name="mow_progress_max">100</item>
+        <item name="mow_progress_current">0</item>
+
+        <item name="mow_progress_unreached_color">#CCCCCC</item>
+        <item name="mow_progress_reached_color">#FFC73B</item>
+        <item name="mow_progress_text_size">10sp</item>
+        <item name="mow_progress_text_color">#FFC73B</item>
+
+        <item name="mow_progress_reached_bar_height">1.5dp</item>
+        <item name="mow_progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="mow_NumberProgressBar_Funny_Orange">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+
+        <item name="mow_progress_max">100</item>
+        <item name="mow_progress_current">0</item>
+
+        <item name="mow_progress_unreached_color">#CCCCCC</item>
+        <item name="mow_progress_reached_color">#FF530D</item>
+        <item name="mow_progress_text_size">10sp</item>
+        <item name="mow_progress_text_color">#FF530D</item>
+
+        <item name="mow_progress_reached_bar_height">1.5dp</item>
+        <item name="mow_progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="mow_NumberProgressBar_Twinkle_Night">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+
+        <item name="mow_progress_max">100</item>
+        <item name="mow_progress_current">0</item>
+
+        <item name="mow_progress_unreached_color">#CCCCCC</item>
+        <item name="mow_progress_reached_color">#ECF0F1</item>
+        <item name="mow_progress_text_size">10sp</item>
+        <item name="mow_progress_text_color">#ECF0F1</item>
+
+        <item name="mow_progress_reached_bar_height">1.5dp</item>
+        <item name="mow_progress_unreached_bar_height">0.75dp</item>
+    </style>
+</resources>

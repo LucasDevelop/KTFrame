@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/frame_transparent"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:id="@+id/ll_select_pop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <Button
+            android:id="@+id/bt_select_takephoto"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/shape_solid_top_left_right_bt"
+            android:text="拍照"
+            android:textColor="@color/frame_normal_text_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <View
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="0.7dp"
+            android:background="@color/frame_devider"/>
+
+        <Button
+            android:id="@+id/bt_select_photo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_solid_bottom_left_right_bt"
+            android:text="从相册选择"
+            android:textColor="@color/frame_normal_text_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <Button
+            android:id="@+id/bt_select_cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_select_photo"
+            android:text="取消"
+            android:textColor="@color/frame_normal_text_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            />
+    </LinearLayout>
+</RelativeLayout>

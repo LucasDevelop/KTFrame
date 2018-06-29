@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="mow_ProgressWheel">
+        <attr name="mow_matProg_progressIndeterminate" format="boolean"/>
+        <attr name="mow_matProg_barColor" format="color"/>
+        <attr name="mow_matProg_rimColor" format="color"/>
+        <attr name="mow_matProg_rimWidth" format="dimension"/>
+        <attr name="mow_matProg_spinSpeed" format="float"/>
+        <attr name="mow_matProg_barSpinCycleTime" format="integer"/>
+        <attr name="mow_matProg_circleRadius" format="dimension"/>
+        <attr name="mow_matProg_fillRadius" format="boolean"/>
+        <attr name="mow_matProg_barWidth" format="dimension"/>
+        <attr name="mow_matProg_linearProgress" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="mow_MaterialProgressBar">
+
+        <!-- Style of progress drawable: horizontal or circular. Defaults to circular. -->
+        <attr name="mow_mpb_progressStyle" format="enum">
+            <enum name="circular" value="0" />
+            <enum name="horizontal" value="1" />
+        </attr>
+
+        <!--
+          ~ Whether both determinate and indeterminate drawables should be set on this progress bar.
+          ~ Defaults to false.
+          -->
+        <attr name="mow_mpb_setBothDrawables" format="boolean" />
+
+        <!-- Whether progress drawable should use its intrinsic padding. Defaults to true. -->
+        <attr name="mow_mpb_useIntrinsicPadding" format="boolean" />
+
+        <!--
+          ~ Whether progress drawable should show a background. Defaults to true for horizontal
+          ~ progress drawable, false otherwise.
+          -->
+        <attr name="mow_mpb_showProgressBackground" format="boolean" />
+
+        <!--
+          ~ Style of determinate circular progress drawable: normal or dynamic. Defaults to normal.
+          -->
+        <attr name="mow_mpb_determinateCircularProgressStyle" format="enum">
+            <enum name="normal" value="0" />
+            <enum name="dynamic" value="1" />
+        </attr>
+
+        <attr name="mow_mpb_progressTint" format="color|reference" />
+        <attr name="mow_mpb_progressTintMode" format="enum">
+            <enum name="src_over" value="3" />
+            <enum name="src_in" value="5" />
+            <enum name="src_atop" value="9" />
+            <enum name="multiply" value="14" />
+            <enum name="screen" value="15" />
+            <enum name="add" value="16" />
+        </attr>
+        <attr name="mow_mpb_secondaryProgressTint" format="color|reference" />
+        <attr name="mow_mpb_secondaryProgressTintMode" format="enum">
+            <enum name="src_over" value="3" />
+            <enum name="src_in" value="5" />
+            <enum name="src_atop" value="9" />
+            <enum name="multiply" value="14" />
+            <enum name="screen" value="15" />
+            <enum name="add" value="16" />
+        </attr>
+        <attr name="mow_mpb_progressBackgroundTint" format="color|reference" />
+        <attr name="mow_mpb_progressBackgroundTintMode" format="enum">
+            <enum name="src_over" value="3" />
+            <enum name="src_in" value="5" />
+            <enum name="src_atop" value="9" />
+            <enum name="multiply" value="14" />
+            <enum name="screen" value="15" />
+            <enum name="add" value="16" />
+        </attr>
+        <attr name="mow_mpb_indeterminateTint" format="color|reference" />
+        <attr name="mow_mpb_indeterminateTintMode" format="enum">
+            <enum name="src_over" value="3" />
+            <enum name="src_in" value="5" />
+            <enum name="src_atop" value="9" />
+            <enum name="multiply" value="14" />
+            <enum name="screen" value="15" />
+            <enum name="add" value="16" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="mow_NumberProgressBar">
+        <attr name="mow_progress_current" format="integer"/>
+        <attr name="mow_progress_max" format="integer"/>
+
+        <attr name="mow_progress_unreached_color" format="color"/>
+        <attr name="mow_progress_reached_color" format="color"/>
+
+        <attr name="mow_progress_reached_bar_height" format="dimension"/>
+        <attr name="mow_progress_unreached_bar_height" format="dimension"/>
+
+        <attr name="mow_progress_text_size" format="dimension"/>
+        <attr name="mow_progress_text_color" format="color"/>
+
+        <attr name="mow_progress_text_offset" format="dimension"/>
+
+        <attr name="mow_progress_text_visibility" format="enum">
+            <enum name="visible" value="0"/>
+            <enum name="invisible" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="mow_Themes">
+        <attr name="mow_numberProgressBarStyle" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="SpinnerCenterView">
+        <attr name="spinner_value" format="reference"/>
+    </declare-styleable>
+</resources>

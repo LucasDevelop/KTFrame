@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="300dp"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:background="@drawable/frame_shape_custom_dialog_bg"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
+
+    <TextView
+        android:paddingBottom="15dp"
+        android:id="@+id/tv_custom_alert_dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center_vertical"
+        android:paddingTop="20dp"
+        android:textColor="@color/mow_text_color"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/ll_custom_alert_dialog_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:textColor="@color/mow_text_hint_color"
+        android:textSize="16sp">
+    </TextView>
+
+    <!--分割线-->
+    <View
+        style="@style/mow_line_horizontal"/>
+
+    <!--两个按钮-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/tv_custom_alert_dialog_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/mow_text_hint_color"
+            android:textSize="13sp"/>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/mow_line_color"/>
+
+
+        <TextView
+            android:id="@+id/tv_custom_alert_dialog_ensure"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/mow_light_yellow_color"
+            android:textSize="13sp"/>
+    </LinearLayout>
+</LinearLayout>

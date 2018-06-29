@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Frame</string>
+    <string name="mow_request_loading">正在玩命加载中. . .</string>
+
+    <string name="mow_request_error">无法访问网络,请检查您的网络状态</string>
+
+    <string name="mow_load_failed">加载失败,点击重新加载</string>
+    <string name="mow_load_end">---  别扯了，没数据了  ---</string>
+    <string name="mow_no_permission">暂无权限,是否开启权限</string>
+    <string name="mow_view_net_error">当前网络环境较差请重新加载</string>
+    <string name="mow_load_again">重新加载</string>
+    <string name="mow_view_no_data">亲，暂时没有相关数据</string>
+    <string name="mow_cancel">取消</string>
+    <string name="mow_has_no_sdcard">SD卡不存在,直接浏览器下载更新</string>
+    <string name="mow_has_no_web">您的还没有安装任何浏览器，请安装浏览器再试！</string>
+    <string name="mow_download_update">下载更新</string>
+</resources>

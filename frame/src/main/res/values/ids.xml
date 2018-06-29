@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="mow_toolbar" type="id"/>
+    <item name="mow_recycleView" type="id"/>
+    <item name="mow_refreshLayout" type="id"/>
+    <item name="mow_root_view" type="id"/>
+    <item name="mow_toolbar_title" type="id"/>
+    <item name="mow_toolbar_right_action" type="id"/>
+    <item name="toolbar_right" type="id"/>
+    <item name="toolbar_title" type="id"/>
+</resources>
