@@ -13,14 +13,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="20dp"
-        android:textColor="@color/mow_text_yellow_color"
+        android:textColor="@color/frame_text_yellow_color"
         android:textSize="20sp"/>
 
     <trilateral.com.mowtogether.lib.common.widget.numberprogressbar.NumberProgressBar
-        app:mow_progress_reached_color="@color/mow_text_yellow_color"
-        app:mow_progress_max="100"
-        app:mow_progress_text_size="13sp"
-        app:mow_progress_text_color="@color/mow_text_yellow_color"
+        app:frame_progress_reached_color="@color/frame_text_yellow_color"
+        app:frame_progress_max="100"
+        app:frame_progress_text_size="13sp"
+        app:frame_progress_text_color="@color/frame_text_yellow_color"
         android:id="@+id/npb_download_progress"
         android:layout_margin="20dp"
         android:layout_width="match_parent"
@@ -30,18 +30,18 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_alignParentRight="true"
-        android:background="@color/mow_line_color"/>
+        android:background="@color/frame_line_color"/>
 
     <!--中间的内容部分-->
     <TextView
         android:id="@+id/tv_download_cancel"
-        android:text="@string/mow_cancel"
+        android:text="@string/frame_cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
         android:gravity="center_horizontal"
-        android:textColor="@color/mow_text_yellow_color"
+        android:textColor="@color/frame_text_yellow_color"
         android:textSize="16sp">
     </TextView>
 </LinearLayout>

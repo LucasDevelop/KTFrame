@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
-            android:text="@string/mow_request_loading"
+            android:text="@string/frame_request_loading"
             android:textColor="@android:color/black"
             android:textSize="14sp"/>
     </LinearLayout>
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/mow_load_failed"/>
+            android:text="@string/frame_load_failed"/>
 
     </FrameLayout>
 
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/mow_load_end"
+            android:text="@string/frame_load_end"
             android:textColor="@android:color/darker_gray"/>
     </FrameLayout>
 </FrameLayout>

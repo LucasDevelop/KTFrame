@@ -1,0 +1,26 @@
+package com.lucas.frame.base.view
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.lucas.frame.base.mvp.IPresenter
+
+/**
+ * @package     com.lucas.frame.base.view
+ * @author      lucas
+ * @date        2018/6/30
+ * @version     V1.0
+ * @describe    带网络请求的界面需集成该类
+ */
+abstract class BaseRequestFragment<P : IPresenter<*>> : BaseFragment() {
+    lateinit var mIPresenter: P
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        mIPresenter = getPresenter()
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    abstract fun getPresenter(): P
+
+}

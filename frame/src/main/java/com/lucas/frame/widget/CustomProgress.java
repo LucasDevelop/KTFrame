@@ -25,7 +25,7 @@ public class CustomProgress extends Dialog {
     private NumberProgressBar mProgressBar;
 
     public CustomProgress(Context context) {
-        this(context, R.style.mow_Custom_Progress);
+        this(context, R.style.frame_Custom_Progress);
         mContext = context;
     }
 
@@ -265,7 +265,7 @@ public class CustomProgress extends Dialog {
             textView.setTextColor(mContext.getResources().getColor(R.color.frame_text_color));
             textView.setText(dates.get(i));
             textView.setPadding(DisplayUtil.dip2px(mContext, 15), 0, DisplayUtil.dip2px(mContext, 15), 0);
-            textView.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.mow_selector_bg_layout));
+            textView.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.frame_selector_bg_layout));
             layout.addView(textView, params);
 
             if (itemListener != null) {

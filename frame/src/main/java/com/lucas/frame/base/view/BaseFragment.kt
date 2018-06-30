@@ -9,20 +9,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
 import com.lucas.frame.FrameApp
-import com.lucas.frame.base.mvp.IPresenter
 import com.lucas.frame.base.mvp.IView
 import com.lucas.frame.helper.CommentHelper
-import com.mmy.frame.base.view.BaseActivity
+import com.trello.rxlifecycle2.components.support.RxFragment
 
 
 /**
- * @创建者     lucas
- * @创建时间   2017/12/25 0025 15:20
- * @描述          TODO
+ * @package     com.lucas.frame.base.view
+ * @author      lucas
+ * @date        2018/6/30
+ * @version     V1.0
+ * @describe    所有fragment应该集成该类
  */
- abstract class BaseFragment<P : IPresenter<*>> : Fragment(), IView, CommentHelper {
+ abstract class BaseFragment : RxFragment(), IView, CommentHelper {
 
-    lateinit var mIPresenter: P
     var mFramApp: FrameApp = FrameApp.INSTANCE
     val mHandler: Handler = Handler()
     lateinit var rootView:View
@@ -30,7 +30,6 @@ import com.mmy.frame.base.view.BaseActivity
     open fun getAc() = activity!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        mIPresenter = getPresenter()
         if (registerBus())
             mFramApp.bus.register(this)
          rootView = LayoutInflater.from(activity).inflate(getLayoutId(), null, false)
@@ -49,18 +48,17 @@ import com.mmy.frame.base.view.BaseActivity
     abstract fun initData()
     open fun initEvent(){}
     open fun registerBus(): Boolean = false
-    abstract fun getPresenter():P
 
     override fun showLoading() {
-        (activity as BaseActivity<*>).showLoading()
+        (activity as BaseActivity).showLoading()
     }
 
     override fun hidLoading() {
-        (activity as BaseActivity<*>).hidLoading()
+        (activity as BaseActivity).hidLoading()
     }
 
     override fun <A : Activity> openActivity(a: Class<A>, params: String, serializableBean: Any?, isResult: Boolean, requestCode: Int) {
-        (activity as BaseActivity<*>).openActivity(a, params, serializableBean,isResult, requestCode)
+        (activity as BaseActivity).openActivity(a, params, serializableBean,isResult, requestCode)
     }
 
     /**

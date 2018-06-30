@@ -69,57 +69,57 @@ public class MaterialProgressBar extends ProgressBar {
 
         Context context = getContext();
         TintTypedArray a = TintTypedArray.obtainStyledAttributes(context, attrs,
-                R.styleable.mow_MaterialProgressBar, defStyleAttr, defStyleRes);
-        mProgressStyle = a.getInt(R.styleable.mow_MaterialProgressBar_mow_mpb_progressStyle,
+                R.styleable.frame_MaterialProgressBar, defStyleAttr, defStyleRes);
+        mProgressStyle = a.getInt(R.styleable.frame_MaterialProgressBar_frame_mpb_progressStyle,
                 PROGRESS_STYLE_CIRCULAR);
         boolean setBothDrawables = a.getBoolean(
-                R.styleable.mow_MaterialProgressBar_mow_mpb_setBothDrawables, false);
+                R.styleable.frame_MaterialProgressBar_frame_mpb_setBothDrawables, false);
         boolean useIntrinsicPadding = a.getBoolean(
-                R.styleable.mow_MaterialProgressBar_mow_mpb_useIntrinsicPadding, true);
+                R.styleable.frame_MaterialProgressBar_frame_mpb_useIntrinsicPadding, true);
         boolean showProgressBackground = a.getBoolean(
-                R.styleable.mow_MaterialProgressBar_mow_mpb_showProgressBackground,
+                R.styleable.frame_MaterialProgressBar_frame_mpb_showProgressBackground,
                 mProgressStyle == PROGRESS_STYLE_HORIZONTAL);
         int determinateCircularProgressStyle = a.getInt(
-                R.styleable.mow_MaterialProgressBar_mow_mpb_determinateCircularProgressStyle,
+                R.styleable.frame_MaterialProgressBar_frame_mpb_determinateCircularProgressStyle,
                 DETERMINATE_CIRCULAR_PROGRESS_STYLE_NORMAL);
-        if (a.hasValue(R.styleable.mow_MaterialProgressBar_mow_mpb_progressTint)) {
+        if (a.hasValue(R.styleable.frame_MaterialProgressBar_frame_mpb_progressTint)) {
             mProgressTintInfo.mProgressTint = a.getColorStateList(
-                    R.styleable.mow_MaterialProgressBar_mow_mpb_progressTint);
+                    R.styleable.frame_MaterialProgressBar_frame_mpb_progressTint);
             mProgressTintInfo.mHasProgressTint = true;
         }
-        if (a.hasValue(R.styleable.mow_MaterialProgressBar_mow_mpb_progressTintMode)) {
+        if (a.hasValue(R.styleable.frame_MaterialProgressBar_frame_mpb_progressTintMode)) {
             mProgressTintInfo.mProgressTintMode = DrawableCompat.parseTintMode(a.getInt(
-                    R.styleable.mow_MaterialProgressBar_mow_mpb_progressTintMode, -1), null);
+                    R.styleable.frame_MaterialProgressBar_frame_mpb_progressTintMode, -1), null);
             mProgressTintInfo.mHasProgressTintMode = true;
         }
-        if (a.hasValue(R.styleable.mow_MaterialProgressBar_mow_mpb_secondaryProgressTint)) {
+        if (a.hasValue(R.styleable.frame_MaterialProgressBar_frame_mpb_secondaryProgressTint)) {
             mProgressTintInfo.mSecondaryProgressTint = a.getColorStateList(
-                    R.styleable.mow_MaterialProgressBar_mow_mpb_secondaryProgressTint);
+                    R.styleable.frame_MaterialProgressBar_frame_mpb_secondaryProgressTint);
             mProgressTintInfo.mHasSecondaryProgressTint = true;
         }
-        if (a.hasValue(R.styleable.mow_MaterialProgressBar_mow_mpb_secondaryProgressTintMode)) {
+        if (a.hasValue(R.styleable.frame_MaterialProgressBar_frame_mpb_secondaryProgressTintMode)) {
             mProgressTintInfo.mSecondaryProgressTintMode = DrawableCompat.parseTintMode(a.getInt(
-                    R.styleable.mow_MaterialProgressBar_mow_mpb_secondaryProgressTintMode, -1), null);
+                    R.styleable.frame_MaterialProgressBar_frame_mpb_secondaryProgressTintMode, -1), null);
             mProgressTintInfo.mHasSecondaryProgressTintMode = true;
         }
-        if (a.hasValue(R.styleable.mow_MaterialProgressBar_mow_mpb_progressBackgroundTint)) {
+        if (a.hasValue(R.styleable.frame_MaterialProgressBar_frame_mpb_progressBackgroundTint)) {
             mProgressTintInfo.mProgressBackgroundTint = a.getColorStateList(
-                    R.styleable.mow_MaterialProgressBar_mow_mpb_progressBackgroundTint);
+                    R.styleable.frame_MaterialProgressBar_frame_mpb_progressBackgroundTint);
             mProgressTintInfo.mHasProgressBackgroundTint = true;
         }
-        if (a.hasValue(R.styleable.mow_MaterialProgressBar_mow_mpb_progressBackgroundTintMode)) {
+        if (a.hasValue(R.styleable.frame_MaterialProgressBar_frame_mpb_progressBackgroundTintMode)) {
             mProgressTintInfo.mProgressBackgroundTintMode = DrawableCompat.parseTintMode(a.getInt(
-                    R.styleable.mow_MaterialProgressBar_mow_mpb_progressBackgroundTintMode, -1), null);
+                    R.styleable.frame_MaterialProgressBar_frame_mpb_progressBackgroundTintMode, -1), null);
             mProgressTintInfo.mHasProgressBackgroundTintMode = true;
         }
-        if (a.hasValue(R.styleable.mow_MaterialProgressBar_mow_mpb_indeterminateTint)) {
+        if (a.hasValue(R.styleable.frame_MaterialProgressBar_frame_mpb_indeterminateTint)) {
             mProgressTintInfo.mIndeterminateTint = a.getColorStateList(
-                    R.styleable.mow_MaterialProgressBar_mow_mpb_indeterminateTint);
+                    R.styleable.frame_MaterialProgressBar_frame_mpb_indeterminateTint);
             mProgressTintInfo.mHasIndeterminateTint = true;
         }
-        if (a.hasValue(R.styleable.mow_MaterialProgressBar_mow_mpb_indeterminateTintMode)) {
+        if (a.hasValue(R.styleable.frame_MaterialProgressBar_frame_mpb_indeterminateTintMode)) {
             mProgressTintInfo.mIndeterminateTintMode = DrawableCompat.parseTintMode(a.getInt(
-                    R.styleable.mow_MaterialProgressBar_mow_mpb_indeterminateTintMode, -1), null);
+                    R.styleable.frame_MaterialProgressBar_frame_mpb_indeterminateTintMode, -1), null);
             mProgressTintInfo.mHasIndeterminateTintMode = true;
         }
         a.recycle();

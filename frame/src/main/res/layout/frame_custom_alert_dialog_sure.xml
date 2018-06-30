@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="15dp"
         android:gravity="center_vertical"
-        android:textColor="@color/mow_text_color"
+        android:textColor="@color/frame_text_color"
         android:textSize="20sp"/>
 
     <!--中间的内容部分-->
@@ -28,12 +28,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:gravity="center"
-        android:textColor="@color/mow_text_hint_color"
+        android:textColor="@color/frame_text_hint_color"
         android:textSize="15sp">
     </TextView>
 
     <View
-        style="@style/mow_line_horizontal"/>
+        style="@style/frame_line_horizontal"/>
 
     <TextView
         android:id="@+id/tv_custom_alert_dialog_ensure_ensure"
@@ -41,6 +41,6 @@
         android:layout_height="50dp"
         android:gravity="center"
         android:text="确定"
-        android:textColor="@color/mow_btn_color"
+        android:textColor="@color/frame_btn_color"
         android:textSize="18sp"/>
 </LinearLayout>

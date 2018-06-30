@@ -8,14 +8,14 @@
 
     
     <ImageView
-        android:src="@mipmap/mow_pager_error"
+        android:src="@mipmap/frame_pager_error"
         android:layout_width="160dp"
         android:layout_height="147dp"/>
     
     <TextView
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"
-        android:text="@string/mow_view_net_error"
+        android:text="@string/frame_view_net_error"
         android:textSize="14sp"
         android:textColor="@color/frame_text_hint_color"
         android:layout_width="wrap_content"
@@ -28,7 +28,7 @@
         android:paddingLeft="22dp"
         android:paddingRight="22dp"
         android:id="@+id/tv_view_pager_error_load"
-        android:text="@string/mow_load_again"
+        android:text="@string/frame_load_again"
         android:textSize="14sp"
         android:textColor="@color/frame_main_tab_color"
         android:layout_width="wrap_content"

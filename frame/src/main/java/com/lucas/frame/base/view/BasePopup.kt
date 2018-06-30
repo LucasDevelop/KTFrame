@@ -58,7 +58,7 @@ abstract class BasePopup(val context: Context) : PopupWindow(context) {
         val animation = if (animID != -1)
             AnimationUtils.loadAnimation(context, animID)
         else
-            AnimationUtils.loadAnimation(context, R.anim.popup_a_t)
+            AnimationUtils.loadAnimation(context, R.anim.frame_popup_a_t)
         mRootView.startAnimation(animation)
         showAtLocation(view, Gravity.CENTER, 0, 0)
     }

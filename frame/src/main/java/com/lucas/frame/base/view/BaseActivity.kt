@@ -1,4 +1,4 @@
-package com.mmy.frame.base.view
+package com.lucas.frame.base.view
 
 import android.app.Activity
 import android.content.Intent
@@ -17,22 +17,23 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import com.lucas.frame.FrameApp
 import com.lucas.frame.R
-import com.lucas.frame.base.mvp.IPresenter
 import com.lucas.frame.base.mvp.IView
 import com.lucas.frame.helper.CommentHelper
 import com.lucas.frame.utils.UIUtil
 import com.squareup.otto.Bus
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import java.io.Serializable
 
 
 /**
- * @创建者     lucas
- * @创建时间   2017/12/25 0025 13:42
- * @描述          所有activity应该集成该类
+ * @package     com.lucas.frame.base.view
+ * @author      lucas
+ * @date        2018/6/30
+ * @version     V1.0
+ * @describe    所有activity应该集成该类
  */
-abstract class BaseActivity<P : IPresenter<*>> : AppCompatActivity(), IView, CommentHelper {
+abstract class BaseActivity : RxAppCompatActivity(),IView, CommentHelper {
 
-    lateinit var mPresenter: P
     var mBus: Bus = FrameApp.INSTANCE.bus
     var mFrameApp: FrameApp? = null
     var mToolBar: Toolbar? = null
@@ -41,7 +42,6 @@ abstract class BaseActivity<P : IPresenter<*>> : AppCompatActivity(), IView, Com
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initAnim()
-        mPresenter = getPresenter()
         if (registerBus())
             mBus.register(this)
         onCreateInit()
@@ -60,13 +60,13 @@ abstract class BaseActivity<P : IPresenter<*>> : AppCompatActivity(), IView, Com
     private fun initAnim() {
         if (toggleOverridePendingTransition()) {
             when (getOverridePendingTransitionMode()) {
-                BaseActivity.TransitionMode.LEFT -> overridePendingTransition(R.anim.mow_left_in, R.anim.mow_left_out)
-                BaseActivity.TransitionMode.RIGHT -> overridePendingTransition(R.anim.mow_right_in, R.anim.mow_right_out)
-                BaseActivity.TransitionMode.FINISH -> overridePendingTransition(R.anim.mow_right_in, R.anim.mow_right_finish)
-                BaseActivity.TransitionMode.TOP -> overridePendingTransition(R.anim.mow_top_in, R.anim.mow_top_out)
-                BaseActivity.TransitionMode.BOTTOM -> overridePendingTransition(R.anim.mow_bottom_in, R.anim.mow_bottom_out)
-                BaseActivity.TransitionMode.SCALE -> overridePendingTransition(R.anim.mow_scale_in, R.anim.mow_scale_out)
-                BaseActivity.TransitionMode.FADE -> overridePendingTransition(R.anim.mow_fade_in, R.anim.mow_fade_out)
+                TransitionMode.LEFT -> overridePendingTransition(R.anim.frame_left_in, R.anim.frame_left_out)
+                TransitionMode.RIGHT -> overridePendingTransition(R.anim.frame_right_in, R.anim.frame_right_out)
+                TransitionMode.FINISH -> overridePendingTransition(R.anim.frame_right_in, R.anim.frame_right_finish)
+                TransitionMode.TOP -> overridePendingTransition(R.anim.frame_top_in, R.anim.frame_top_out)
+                TransitionMode.BOTTOM -> overridePendingTransition(R.anim.frame_bottom_in, R.anim.frame_bottom_out)
+                TransitionMode.SCALE -> overridePendingTransition(R.anim.frame_scale_in, R.anim.frame_scale_out)
+                TransitionMode.FADE -> overridePendingTransition(R.anim.frame_fade_in, R.anim.frame_fade_out)
             }
         }
     }
@@ -76,8 +76,6 @@ abstract class BaseActivity<P : IPresenter<*>> : AppCompatActivity(), IView, Com
     private fun initComment() {
         //查找控件
         mToolBar = findViewById(R.id.toolbar)
-//        loadingDialog = SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE)
-//        loadingDialog?.titleText = "加载中.."
     }
 
     abstract fun initView()
@@ -87,11 +85,10 @@ abstract class BaseActivity<P : IPresenter<*>> : AppCompatActivity(), IView, Com
     abstract fun getLayoutID(): Any
     //注册事件
     open fun registerBus() = false
-    abstract fun getPresenter():P
     //Activity是否添加动画
     open fun toggleOverridePendingTransition() = true
     //Activity动画类型
-    open fun getOverridePendingTransitionMode() =TransitionMode.RIGHT
+    open fun getOverridePendingTransitionMode() = TransitionMode.RIGHT
     enum class TransitionMode{
         LEFT, RIGHT, TOP, BOTTOM, SCALE, FADE, FINISH
     }
@@ -141,7 +138,7 @@ abstract class BaseActivity<P : IPresenter<*>> : AppCompatActivity(), IView, Com
         if (mToolBar == null) return
         if (isBack) {
             if (leftRes == 0) {
-                mToolBar?.setNavigationIcon(R.mipmap.ic_back)
+                mToolBar?.setNavigationIcon(R.mipmap.frame_ic_back)
             } else {
                 mToolBar?.setNavigationIcon(leftRes)
             }
@@ -230,13 +227,13 @@ abstract class BaseActivity<P : IPresenter<*>> : AppCompatActivity(), IView, Com
         super.finish()
         if (toggleOverridePendingTransition()) {
             when (getOverridePendingTransitionMode()) {
-                BaseActivity.TransitionMode.LEFT -> overridePendingTransition(R.anim.mow_left_in, R.anim.mow_left_out)
-                BaseActivity.TransitionMode.RIGHT -> overridePendingTransition(R.anim.mow_right_in, R.anim.mow_right_out)
-                BaseActivity.TransitionMode.FINISH -> overridePendingTransition(R.anim.mow_right_in, R.anim.mow_right_finish)
-                BaseActivity.TransitionMode.TOP -> overridePendingTransition(R.anim.mow_top_in, R.anim.mow_top_out)
-                BaseActivity.TransitionMode.BOTTOM -> overridePendingTransition(R.anim.mow_bottom_in, R.anim.mow_bottom_out)
-                BaseActivity.TransitionMode.SCALE -> overridePendingTransition(R.anim.mow_scale_in, R.anim.mow_scale_out)
-                BaseActivity.TransitionMode.FADE -> overridePendingTransition(R.anim.mow_fade_in, R.anim.mow_fade_out)
+                TransitionMode.LEFT -> overridePendingTransition(R.anim.frame_left_in, R.anim.frame_left_out)
+                TransitionMode.RIGHT -> overridePendingTransition(R.anim.frame_right_in, R.anim.frame_right_out)
+                TransitionMode.FINISH -> overridePendingTransition(R.anim.frame_right_in, R.anim.frame_right_finish)
+                TransitionMode.TOP -> overridePendingTransition(R.anim.frame_top_in, R.anim.frame_top_out)
+                TransitionMode.BOTTOM -> overridePendingTransition(R.anim.frame_bottom_in, R.anim.frame_bottom_out)
+                TransitionMode.SCALE -> overridePendingTransition(R.anim.frame_scale_in, R.anim.frame_scale_out)
+                TransitionMode.FADE -> overridePendingTransition(R.anim.frame_fade_in, R.anim.frame_fade_out)
             }
         }
     }

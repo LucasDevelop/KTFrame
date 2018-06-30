@@ -51,7 +51,7 @@ public class PictureSelectPopup extends PopupWindow {
         this.setFocusable(true);
         //设置SelectPicPopupWindow弹出窗体动画效果
         mMenuView.findViewById(R.id.ll_select_pop).startAnimation(AnimationUtils.loadAnimation(context, R.anim
-                .popup_photo_enter));
+                .frame_popup_photo_enter));
         //实例化一个ColorDrawable颜色为半透明
         ColorDrawable dw = new ColorDrawable(0x30000000);
         //设置SelectPicPopupWindow弹出窗体的背景

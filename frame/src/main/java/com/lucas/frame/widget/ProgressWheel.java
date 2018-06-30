@@ -58,7 +58,7 @@ public class ProgressWheel extends View {
   public ProgressWheel(Context context, AttributeSet attrs) {
     super(context, attrs);
 
-    parseAttributes(context.obtainStyledAttributes(attrs, R.styleable.mow_ProgressWheel));
+    parseAttributes(context.obtainStyledAttributes(attrs, R.styleable.frame_ProgressWheel));
 
     setAnimationEnabled();
   }
@@ -171,28 +171,28 @@ public class ProgressWheel extends View {
         (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, circleRadius, metrics);
 
     circleRadius =
-        (int) a.getDimension(R.styleable.mow_ProgressWheel_mow_matProg_circleRadius, circleRadius);
+        (int) a.getDimension(R.styleable.frame_ProgressWheel_frame_matProg_circleRadius, circleRadius);
 
-    fillRadius = a.getBoolean(R.styleable.mow_ProgressWheel_mow_matProg_fillRadius, false);
+    fillRadius = a.getBoolean(R.styleable.frame_ProgressWheel_frame_matProg_fillRadius, false);
 
-    barWidth = (int) a.getDimension(R.styleable.mow_ProgressWheel_mow_matProg_barWidth, barWidth);
+    barWidth = (int) a.getDimension(R.styleable.frame_ProgressWheel_frame_matProg_barWidth, barWidth);
 
-    rimWidth = (int) a.getDimension(R.styleable.mow_ProgressWheel_mow_matProg_rimWidth, rimWidth);
+    rimWidth = (int) a.getDimension(R.styleable.frame_ProgressWheel_frame_matProg_rimWidth, rimWidth);
 
     float baseSpinSpeed =
-        a.getFloat(R.styleable.mow_ProgressWheel_mow_matProg_spinSpeed, spinSpeed / 360.0f);
+        a.getFloat(R.styleable.frame_ProgressWheel_frame_matProg_spinSpeed, spinSpeed / 360.0f);
     spinSpeed = baseSpinSpeed * 360;
 
     barSpinCycleTime =
-        a.getInt(R.styleable.mow_ProgressWheel_mow_matProg_barSpinCycleTime, (int) barSpinCycleTime);
+        a.getInt(R.styleable.frame_ProgressWheel_frame_matProg_barSpinCycleTime, (int) barSpinCycleTime);
 
-    barColor = a.getColor(R.styleable.mow_ProgressWheel_mow_matProg_barColor, barColor);
+    barColor = a.getColor(R.styleable.frame_ProgressWheel_frame_matProg_barColor, barColor);
 
-    rimColor = a.getColor(R.styleable.mow_ProgressWheel_mow_matProg_rimColor, rimColor);
+    rimColor = a.getColor(R.styleable.frame_ProgressWheel_frame_matProg_rimColor, rimColor);
 
-    linearProgress = a.getBoolean(R.styleable.mow_ProgressWheel_mow_matProg_linearProgress, false);
+    linearProgress = a.getBoolean(R.styleable.frame_ProgressWheel_frame_matProg_linearProgress, false);
 
-    if (a.getBoolean(R.styleable.mow_ProgressWheel_mow_matProg_progressIndeterminate, false)) {
+    if (a.getBoolean(R.styleable.frame_ProgressWheel_frame_matProg_progressIndeterminate, false)) {
       spin();
     }
 

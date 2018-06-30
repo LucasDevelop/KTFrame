@@ -16,13 +16,13 @@
         android:layout_marginRight="10dp"
         android:gravity="center_vertical"
         android:paddingTop="20dp"
-        android:textColor="@color/mow_text_yellow_color"
+        android:textColor="@color/frame_text_yellow_color"
         android:textSize="20sp"/>
 
     <View
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        style="@style/mow_line_horizontal"/>
+        style="@style/frame_line_horizontal"/>
 
     <ScrollView
         android:scrollbars="none"

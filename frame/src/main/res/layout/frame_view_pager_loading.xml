@@ -6,5 +6,5 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/frame_white_color"
-    export:mow_matProg_barColor="@color/frame_btn_color"
-    export:mow_matProg_progressIndeterminate="true"/>
+    export:frame_matProg_barColor="@color/frame_btn_color"
+    export:frame_matProg_progressIndeterminate="true"/>
