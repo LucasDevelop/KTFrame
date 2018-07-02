@@ -2,6 +2,7 @@ package com.lucas.frame.helper
 
 import android.app.Activity
 import android.content.Context
+import android.os.Looper
 import android.widget.TextView
 import android.widget.Toast
 import com.blankj.utilcode.util.LogUtils
@@ -34,7 +35,11 @@ interface CommentHelper {
     }
 
     fun String.showToast() {
-        FrameApp.INSTANCE.handler.post { Toast.makeText(FrameApp.INSTANCE, this, Toast.LENGTH_SHORT).show() }
+        //判断当前线程是否是主线程
+        if (Thread.currentThread() == Looper.getMainLooper().thread)
+            Toast.makeText(FrameApp.INSTANCE, this, Toast.LENGTH_SHORT).show()
+        else
+            FrameApp.INSTANCE.handler.post { Toast.makeText(FrameApp.INSTANCE, this, Toast.LENGTH_SHORT).show() }
     }
 
     /**

@@ -32,7 +32,7 @@ import java.io.Serializable
  * @version     V1.0
  * @describe    所有activity应该集成该类
  */
-abstract class BaseActivity : RxAppCompatActivity(),IView, CommentHelper {
+abstract class BaseActivity : RxAppCompatActivity(), CommentHelper {
 
     var mBus: Bus = FrameApp.INSTANCE.bus
     var mFrameApp: FrameApp? = null
@@ -73,7 +73,7 @@ abstract class BaseActivity : RxAppCompatActivity(),IView, CommentHelper {
 
     open fun onCreateInit() {}
 
-    private fun initComment() {
+    open protected fun initComment() {
         //查找控件
         mToolBar = findViewById(R.id.toolbar)
     }
@@ -93,18 +93,10 @@ abstract class BaseActivity : RxAppCompatActivity(),IView, CommentHelper {
         LEFT, RIGHT, TOP, BOTTOM, SCALE, FADE, FINISH
     }
 
-    override fun showLoading() {
-//        if (!loadingDialog?.isShowing!!)//!!loading为空时会出空指针异常
-//            loadingDialog?.show()
-    }
-
-    override fun hidLoading() {
-//        if (loadingDialog?.isShowing!!) {
-//            loadingDialog?.dismiss()
-//        }
-    }
-
-    override fun <A : Activity> openActivity(a: Class<A>, params: String, serializableBean: Any?, isResult: Boolean, requestCode: Int) {
+    //打开一个activity
+    //打开一个activity并且传入参数 格式 ：key=value,key=value...
+    //是否返回数据
+    fun <A : Activity> openActivity(a: Class<A>, params: String, serializableBean: Any?, isResult: Boolean, requestCode: Int) {
         val intent = Intent(this, a)
         val list = params.split(",")
         list.forEach {
@@ -143,7 +135,7 @@ abstract class BaseActivity : RxAppCompatActivity(),IView, CommentHelper {
                 mToolBar?.setNavigationIcon(leftRes)
             }
             mToolBar?.setNavigationOnClickListener {
-                finishView()
+                finish()
             }
         }
         if (!TextUtils.isEmpty(title)) {

@@ -3,6 +3,7 @@ package com.lucas.frame.base.mvp
 import android.app.Activity
 import android.support.v4.widget.SwipeRefreshLayout
 import android.view.ViewGroup
+import com.lucas.frame.data.bean.IBean
 
 
 /**
@@ -10,15 +11,19 @@ import android.view.ViewGroup
  * @创建时间   2017/12/23 0023 16:28
  * @描述          TODO
  */
-interface IView {
-    fun showLoading()
-    fun hidLoading()
-    fun requestSuccess(data: Any)
-
-    //打开一个activity
-    //打开一个activity并且传入参数 格式 ：key=value,key=value...
-    //是否返回数据
-    fun <A : Activity> openActivity(a: Class<A>, params: String = "", serializableBean:Any? = null, isResult: Boolean = false, requestCode: Int = 0)
+interface IView<B> {
+    fun showProgress(isCancel:Boolean=false)
+    fun hideProgress()
+    fun requestSuccess(data: B)
+    fun requestFail(data: B,msg:String?)
+    fun showLoadingView()
+    fun showEmptyView(msg: String?)
+    fun showNetError()
+    fun refreshView()
+    fun showLoadMoreError()
+    fun resetRecyclerAndRefresh()
+    //token过期
+    fun tokenOverdue()
 
     //关闭swipeRefreshView
     fun setRefreshing(isRefresh: Boolean) {

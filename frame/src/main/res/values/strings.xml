@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Frame</string>
+    <string name="frame_app_name">Frame</string>
     <string name="frame_request_loading">正在玩命加载中. . .</string>
 
     <string name="frame_request_error">无法访问网络,请检查您的网络状态</string>

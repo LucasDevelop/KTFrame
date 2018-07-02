@@ -11,7 +11,7 @@ import com.lucas.frame.helper.CommentHelper
  * @创建时间   2017/12/23 0023 16:30
  * @描述          TODO
  */
-open class IPresenter<V : IView>(val mV: IView) : CommentHelper {
+open class IPresenter<V : IView<*>>(val mV: IView<*>) : CommentHelper {
 
     //注入model
 //     lateinit var mM: BaseModel

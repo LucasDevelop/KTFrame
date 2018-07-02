@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.lucas.frame.base.mvp.IPresenter
+import com.lucas.frame.base.mvp.IView
+import com.lucas.frame.data.bean.IBean
 
 /**
  * @package     com.lucas.frame.base.view
@@ -13,7 +15,7 @@ import com.lucas.frame.base.mvp.IPresenter
  * @version     V1.0
  * @describe    带网络请求的界面需集成该类
  */
-abstract class BaseRequestFragment<P : IPresenter<*>> : BaseFragment() {
+abstract class BaseRequestFragment<P : IPresenter<*>,B:IBean> : BaseFragment(),IView<B> {
     lateinit var mIPresenter: P
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

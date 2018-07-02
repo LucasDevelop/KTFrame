@@ -1,10 +1,20 @@
 package com.lucas.frame.utils
+
 /**
  * @创建者     lucas
  * @创建时间   2017/12/25 0025 11:22
  * @描述          配置
  */
 object Config {
+    //请求状态码
+    object  Request {
+        //请求成功
+        val REQUEST_SUCCESS = 1
+
+        //token过期
+        val TOKEN_OVERDUE = -1
+    }
+
     //本地缓存大小
     val CACHE_SIZE: Long = 1024 * 1024 * 10
 

@@ -21,18 +21,18 @@ import com.trello.rxlifecycle2.components.support.RxFragment
  * @version     V1.0
  * @describe    所有fragment应该集成该类
  */
- abstract class BaseFragment : RxFragment(), IView, CommentHelper {
+abstract class BaseFragment : RxFragment(), CommentHelper {
 
     var mFramApp: FrameApp = FrameApp.INSTANCE
     val mHandler: Handler = Handler()
-    lateinit var rootView:View
+    lateinit var rootView: View
 
     open fun getAc() = activity!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         if (registerBus())
             mFramApp.bus.register(this)
-         rootView = LayoutInflater.from(activity).inflate(getLayoutId(), null, false)
+        rootView = LayoutInflater.from(activity).inflate(getLayoutId(), null, false)
         return rootView
     }
 
@@ -46,19 +46,11 @@ import com.trello.rxlifecycle2.components.support.RxFragment
     abstract fun getLayoutId(): Int
     abstract fun initView()
     abstract fun initData()
-    open fun initEvent(){}
+    open fun initEvent() {}
     open fun registerBus(): Boolean = false
 
-    override fun showLoading() {
-        (activity as BaseActivity).showLoading()
-    }
-
-    override fun hidLoading() {
-        (activity as BaseActivity).hidLoading()
-    }
-
-    override fun <A : Activity> openActivity(a: Class<A>, params: String, serializableBean: Any?, isResult: Boolean, requestCode: Int) {
-        (activity as BaseActivity).openActivity(a, params, serializableBean,isResult, requestCode)
+    fun <A : Activity> openActivity(a: Class<A>, params: String, serializableBean: Any?, isResult: Boolean, requestCode: Int) {
+        (activity as BaseActivity).openActivity(a, params, serializableBean, isResult, requestCode)
     }
 
     /**
@@ -96,7 +88,6 @@ import com.trello.rxlifecycle2.components.support.RxFragment
     override fun onDestroyView() {
         super.onDestroyView()
         if (registerBus())
-            if (registerBus())
-                mFramApp.bus.register(this)
+            mFramApp.bus.register(this)
     }
 }
