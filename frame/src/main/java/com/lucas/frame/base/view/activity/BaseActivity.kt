@@ -1,11 +1,10 @@
-package com.lucas.frame.base.view
+package com.lucas.frame.base.view.activity
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.annotation.DrawableRes
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.text.TextUtils
 import android.util.TypedValue
@@ -17,12 +16,15 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import com.lucas.frame.FrameApp
 import com.lucas.frame.R
-import com.lucas.frame.base.mvp.IView
 import com.lucas.frame.helper.CommentHelper
 import com.lucas.frame.utils.UIUtil
 import com.squareup.otto.Bus
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import java.io.Serializable
+import com.jude.swipbackhelper.SwipeListener
+import com.jude.swipbackhelper.SwipeBackHelper
+
+
 
 
 /**
@@ -42,13 +44,12 @@ abstract class BaseActivity : RxAppCompatActivity(), CommentHelper {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initAnim()
+        initSwipeBack()
         if (registerBus())
             mBus.register(this)
         onCreateInit()
         val layoutID = getLayoutID()
-        if (layoutID is Int && layoutID != 0)
-            setContentView(layoutID)
-        if (layoutID is View)
+        if (layoutID != 0)
             setContentView(layoutID)
         mFrameApp = (application as FrameApp)
         initComment()
@@ -57,6 +58,34 @@ abstract class BaseActivity : RxAppCompatActivity(), CommentHelper {
         initEvent()
     }
 
+    //初始化侧滑关闭
+    private fun initSwipeBack() {
+        SwipeBackHelper.onCreate(this);
+        SwipeBackHelper.getCurrentPage(this)//get current instance
+                .setSwipeBackEnable(true)//on-off
+                .setSwipeEdge(200)//set the touch area。200 mean only the left 200px of screen can touch to begin swipe.
+                .setSwipeEdgePercent(0.2f)//0.2 mean left 20% of screen can touch to begin swipe.
+                .setSwipeSensitivity(0.5f)//sensitiveness of the gesture。0:slow  1:sensitive
+                .setScrimColor(R.color.frame_blue_color)//color of Scrim below the activity
+                .setClosePercent(0.8f)//close activity when swipe over this
+                .setSwipeRelateEnable(false)//if should move together with the following Activity
+                .setSwipeRelateOffset(500)//the Offset of following Activity when setSwipeRelateEnable(true)
+                .setDisallowInterceptTouchEvent(true)//your view can hand the events first.default false;
+                .addListener(object : SwipeListener {
+                    override fun onScroll(percent: Float, px: Int) {}
+
+                    override fun onEdgeTouch() {}
+
+                    override fun onScrollToClose() {}
+                })
+    }
+
+    override fun onPostCreate(savedInstanceState: Bundle?) {
+        super.onPostCreate(savedInstanceState)
+        SwipeBackHelper.onPostCreate(this)
+    }
+
+    //初始化activity打开与关闭动画
     private fun initAnim() {
         if (toggleOverridePendingTransition()) {
             when (getOverridePendingTransitionMode()) {
@@ -73,16 +102,16 @@ abstract class BaseActivity : RxAppCompatActivity(), CommentHelper {
 
     open fun onCreateInit() {}
 
-    open protected fun initComment() {
+    open fun initComment() {
         //查找控件
-        mToolBar = findViewById(R.id.toolbar)
+        mToolBar = findViewById(R.id.frame_toolbar)
     }
 
     abstract fun initView()
     abstract fun initData()
     open fun initEvent() {}
     //布局id
-    abstract fun getLayoutID(): Any
+    abstract fun getLayoutID(): Int
     //注册事件
     open fun registerBus() = false
     //Activity是否添加动画
@@ -140,7 +169,7 @@ abstract class BaseActivity : RxAppCompatActivity(), CommentHelper {
         }
         if (!TextUtils.isEmpty(title)) {
             val textView = TextView(this)
-            textView.id = R.id.toolbar_title
+            textView.id = R.id.frame_toolbar_title
             textView.text = title
             textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
             if (textColor != 0)
@@ -153,7 +182,7 @@ abstract class BaseActivity : RxAppCompatActivity(), CommentHelper {
         val dp15 = UIUtil.dp2px(this, 15)
         if (rightRes is Int) {
             val rightImg = ImageView(this)
-            rightImg.id = R.id.toolbar_right
+            rightImg.id = R.id.frame_toolbar_right
             rightImg.setPadding(dp15, 0, dp15, 0)
             rightImg.setImageResource(rightRes)
             rightImg.setOnClickListener(rightClickListener)
@@ -161,7 +190,7 @@ abstract class BaseActivity : RxAppCompatActivity(), CommentHelper {
         }
         if (rightRes is String) {
             val textView = TextView(this)
-            textView.id = R.id.toolbar_right
+            textView.id = R.id.frame_toolbar_right
             textView.gravity = Gravity.CENTER
             textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
             if (rightTextColor != 0) {
@@ -211,6 +240,7 @@ abstract class BaseActivity : RxAppCompatActivity(), CommentHelper {
 
     override fun onDestroy() {
         super.onDestroy()
+        SwipeBackHelper.onDestroy(this)
         if (registerBus())
             mBus.unregister(this)
     }

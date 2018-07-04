@@ -8,6 +8,5 @@ package com.lucas.frame.data.bean;
 
 public class IBean {
     public int status ;
-    public String info;
-    public String sub;
+    public String message;
 }

@@ -16,22 +16,22 @@ import java.util.concurrent.TimeUnit
  * @描述          网络层
  */
 object ApiServiceModule {
-    fun provideOkHttpClient(): OkHttpClient =
+    fun getOkHttpClient(): OkHttpClient =
             OkHttpClient.Builder()
                     .addInterceptor(ParamsInterceptor())
                     .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                     .readTimeout(Config.READ_TIME_OUT, TimeUnit.MILLISECONDS)
                     .connectTimeout(Config.CONN_TIME_OUT, TimeUnit.MILLISECONDS)
-                    .cache(provideCache())
+                    .cache(getCache())
                     .build()
 
-    fun provideCache(): Cache =
+    fun getCache(): Cache =
             Cache(FrameApp.INSTANCE.cacheDir, Config.CACHE_SIZE)
 
-    fun provideRetrofit(): Retrofit =
+    fun getRetrofit(): Retrofit =
             Retrofit.Builder()
                     .baseUrl(FrameApp.INSTANCE.BASE_URL)
-                    .client(provideOkHttpClient())
+                    .client(getOkHttpClient())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(FrameApp.INSTANCE.gson))
                     .build()

@@ -6,6 +6,5 @@
     <item name="frame_root_view" type="id"/>
     <item name="frame_toolbar_title" type="id"/>
     <item name="frame_toolbar_right_action" type="id"/>
-    <item name="toolbar_right" type="id"/>
-    <item name="toolbar_title" type="id"/>
+    <item name="frame_toolbar_right" type="id"/>
 </resources>

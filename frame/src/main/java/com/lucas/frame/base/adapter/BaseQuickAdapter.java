@@ -1361,14 +1361,14 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
     /**
      * Call before {@link RecyclerView#setAdapter(RecyclerView.Adapter)}
      *
-     * @param isHeadAndEmpty false will not show headView if the data is empty true will show emptyView and headView
+     * @param isHeadAndEmpty false will not show headView if the data is empty true will show mEmptyView and headView
      */
     public void setHeaderAndEmpty(boolean isHeadAndEmpty) {
         setHeaderFooterEmpty(isHeadAndEmpty, false);
     }
 
     /**
-     * set emptyView show if adapter is empty and want to show headview and footview
+     * set mEmptyView show if adapter is empty and want to show headview and footview
      * Call before {@link RecyclerView#setAdapter(RecyclerView.Adapter)}
      *
      * @param isHeadAndEmpty

@@ -1,4 +1,4 @@
-package com.lucas.frame.base.view
+package com.lucas.frame.base.view.popup
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator

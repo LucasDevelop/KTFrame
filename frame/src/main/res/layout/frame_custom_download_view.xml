@@ -16,7 +16,7 @@
         android:textColor="@color/frame_text_yellow_color"
         android:textSize="20sp"/>
 
-    <trilateral.com.mowtogether.lib.common.widget.numberprogressbar.NumberProgressBar
+    <com.lucas.frame.widget.numberprogressbar.NumberProgressBar
         app:frame_progress_reached_color="@color/frame_text_yellow_color"
         app:frame_progress_max="100"
         app:frame_progress_text_size="13sp"

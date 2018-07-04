@@ -2,10 +2,11 @@ package com.lucas.frame
 
 import android.app.Application
 import android.os.Handler
+import com.blankj.utilcode.util.Utils
 import com.google.gson.Gson
 import com.squareup.otto.Bus
 
-class FrameApp : Application() {
+open class FrameApp : Application() {
 
     var BASE_URL = BuildConfig.BASE_URL
     var gson = Gson()
@@ -13,12 +14,13 @@ class FrameApp : Application() {
     var bus = Bus()
 
     companion object {
-        lateinit var INSTANCE: FrameApp
+        var INSTANCE: FrameApp = FrameApp()
     }
 
     override fun onCreate() {
         super.onCreate()
         INSTANCE = this
+        Utils.init(this)
     }
 
 }

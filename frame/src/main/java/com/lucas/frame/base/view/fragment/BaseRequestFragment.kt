@@ -1,4 +1,4 @@
-package com.lucas.frame.base.view
+package com.lucas.frame.base.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

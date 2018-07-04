@@ -4,6 +4,8 @@ package com.lucas.frame.interceptor;
 import android.text.TextUtils;
 
 
+import com.lucas.frame.helper.SpHelper;
+
 import java.io.IOException;
 
 
@@ -42,12 +44,12 @@ public class ParamsInterceptor implements Interceptor {
         int userId = getUserId();
         String sign = getSign();
         if (oldRequest.method().equals("GET")) {
-            String needUserId = oldRequest.header("needUserId");
-            if(!TextUtils.isEmpty(needUserId)&&needUserId.equals("false")){
+            String needUserId = oldRequest.header("needLogin");
+            if (!TextUtils.isEmpty(needUserId) && needUserId.equals("false")) {
 
-            }else {
-                if (!TextUtils.isEmpty(userId+"")) {
-                    authorizedUrlBuilder.addQueryParameter("uid", userId+"");
+            } else {
+                if (!TextUtils.isEmpty(userId + "")) {
+                    authorizedUrlBuilder.addQueryParameter("uid", userId + "");
                 }
                 if (!TextUtils.isEmpty(sign)) {
                     authorizedUrlBuilder.addQueryParameter("token", sign);
@@ -55,24 +57,24 @@ public class ParamsInterceptor implements Interceptor {
             }
 
         } else if (oldRequest.method().equals("POST")) {
-            if (oldRequest.body()==null||oldRequest.body() instanceof FormBody) {
-                String needUserId = oldRequest.header("needUserId");
-                if(!TextUtils.isEmpty(needUserId)&&needUserId.equals("false")){
+            if (oldRequest.body() == null || oldRequest.body() instanceof FormBody) {
+                String needUserId = oldRequest.header("needLogin");
+                if (!TextUtils.isEmpty(needUserId) && needUserId.equals("false")) {
 
-                }else {
+                } else {
                     FormBody.Builder bodyBuilder = new FormBody.Builder();
-                    if (!TextUtils.isEmpty(userId+"")) {
-                        bodyBuilder.add("uid", userId+"");
+                    if (!TextUtils.isEmpty(userId + "")) {
+                        bodyBuilder.add("uid", userId + "");
                     }
                     if (!TextUtils.isEmpty(sign)) {
                         bodyBuilder.add("token", sign);
                     }
 
-                    FormBody body ;
-                    if(oldRequest.body()!=null){
-                        body= (FormBody) oldRequest.body();
+                    FormBody body;
+                    if (oldRequest.body() != null) {
+                        body = (FormBody) oldRequest.body();
                         for (int i = 0; i < body.size(); i++) {
-                            bodyBuilder.add(body.name(i),body.value(i));
+                            bodyBuilder.add(body.name(i), body.value(i));
                         }
                     }
                     body = bodyBuilder.build();
@@ -87,7 +89,7 @@ public class ParamsInterceptor implements Interceptor {
         Request newRequest = oldRequest.newBuilder()
                 .method(oldRequest.method(), oldRequest.body())
                 .url(authorizedUrlBuilder.build())
-                .removeHeader("needUserId")
+                .removeHeader("needLogin")
                 .build();
 
         return chain.proceed(newRequest);
@@ -96,11 +98,12 @@ public class ParamsInterceptor implements Interceptor {
     }
 
     private int getUserId() {
-        return 1;
+        Integer userId = SpHelper.INSTANCE.getUserId();
+        return userId == null ? -1 : userId;
     }
 
     private String getSign() {
-        return "xxx";
+        return SpHelper.INSTANCE.getUserSign();
     }
 
 }

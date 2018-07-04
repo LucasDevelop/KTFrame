@@ -23,7 +23,7 @@ import io.reactivex.schedulers.Schedulers
  * @par History:
  *             version: zsr, 2017-09-23
  */
-open class BaseModel(val iView: IView<Any>) : CommentHelper {
+open class BaseModel(val iView: IView<IBean>) : CommentHelper {
 
     private val TAG = "net"
     var mFrameApp: FrameApp = FrameApp.INSTANCE
@@ -34,7 +34,7 @@ open class BaseModel(val iView: IView<Any>) : CommentHelper {
     //请求模式
     var requestMode = RequestMode.FIRST
     //成功回调
-    var _success: (dataBean: Any, reqMode: RequestMode) -> Unit = { dataBean, reqMode -> }
+    var _success: (dataBean: IBean, reqMode: RequestMode) -> Unit = { dataBean, reqMode -> }
     //失败回调
     var _fail: (e: Throwable) -> Unit = {}
     //是否只用WiFi访问网络
@@ -64,7 +64,7 @@ open class BaseModel(val iView: IView<Any>) : CommentHelper {
         init()
         loadBeginView()
         val checkNetWork = checkNetWork()
-        if (!checkNetWork){
+        if (checkNetWork){
             loadErrorView()
             return
         }
@@ -107,7 +107,7 @@ open class BaseModel(val iView: IView<Any>) : CommentHelper {
             }
         else {
             //非 status msg 类型的json数据
-            _success(data, requestMode)
+//            _success(data, requestMode)
             disProgressSuccess()
         }
     }

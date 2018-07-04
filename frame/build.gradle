@@ -50,7 +50,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.trello.rxlifecycle2:rxlifecycle:2.0.1'
-    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.0.1'
+    api 'com.trello.rxlifecycle2:rxlifecycle-components:2.0.1'
     //glide 变换图片
     api 'jp.wasabeef:glide-transformations:2.0.2'
     api 'com.github.bumptech.glide:glide:3.7.0'

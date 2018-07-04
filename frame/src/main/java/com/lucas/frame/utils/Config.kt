@@ -9,11 +9,14 @@ object Config {
     //请求状态码
     object  Request {
         //请求成功
-        val REQUEST_SUCCESS = 1
+        val REQUEST_SUCCESS = 0
 
         //token过期
         val TOKEN_OVERDUE = -1
     }
+
+    //分页 每页数据个数
+    val PAGE_COUNT = 20
 
     //本地缓存大小
     val CACHE_SIZE: Long = 1024 * 1024 * 10

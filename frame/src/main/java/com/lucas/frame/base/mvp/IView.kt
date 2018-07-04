@@ -11,7 +11,7 @@ import com.lucas.frame.data.bean.IBean
  * @创建时间   2017/12/23 0023 16:28
  * @描述          TODO
  */
-interface IView<B> {
+interface IView<B:IBean> {
     fun showProgress(isCancel:Boolean=false)
     fun hideProgress()
     fun requestSuccess(data: B)

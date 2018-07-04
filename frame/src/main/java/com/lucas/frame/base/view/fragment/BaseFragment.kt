@@ -1,15 +1,14 @@
-package com.lucas.frame.base.view
+package com.lucas.frame.base.view.fragment
 
 import android.app.Activity
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
 import com.lucas.frame.FrameApp
-import com.lucas.frame.base.mvp.IView
+import com.lucas.frame.base.view.activity.BaseActivity
 import com.lucas.frame.helper.CommentHelper
 import com.trello.rxlifecycle2.components.support.RxFragment
 

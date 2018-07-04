@@ -1,4 +1,4 @@
-package com.lucas.frame.base.view
+package com.lucas.frame.base.view.activity
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -34,8 +34,12 @@ abstract class BaseRequestActivity<P : IPresenter<*>, B : IBean> : BaseActivity(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         mPresenter = getPresenter()
-        initBaseView()
         super.onCreate(savedInstanceState)
+    }
+
+    override fun initComment() {
+        initBaseView()
+        super.initComment()
     }
 
     //请求相关的控件初始化
@@ -53,7 +57,7 @@ abstract class BaseRequestActivity<P : IPresenter<*>, B : IBean> : BaseActivity(
     abstract fun getPresenter(): P
 
     //是否使用加载样式
-    fun hasProgressStyle() = false
+    fun hasProgressStyle() = true
 
     override fun showProgress(isCancel: Boolean) {
         mCustomProgress?.show(getResStr(R.string.frame_request_loading), isCancel, mCancelListener)
@@ -104,7 +108,7 @@ abstract class BaseRequestActivity<P : IPresenter<*>, B : IBean> : BaseActivity(
     }
 
     //加载数据失败时，用户点击重新加载时重新请求数据
-    fun reRequestData() {
+    open fun reRequestData() {
 
     }
 
@@ -114,5 +118,7 @@ abstract class BaseRequestActivity<P : IPresenter<*>, B : IBean> : BaseActivity(
         super.onDestroy()
     }
 
+    override fun resetRecyclerAndRefresh() {
 
+    }
 }
