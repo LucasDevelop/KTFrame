@@ -27,12 +27,12 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            buildConfigField 'String', 'BASE_URL', '"http://aiping.qichebaby.com"'
+            buildConfigField 'String', 'BASE_URL', '"http://www.wanandroid.com"'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
             minifyEnabled false
-            buildConfigField 'String', 'BASE_URL', '"http://aiping.qichebaby.com"'
+            buildConfigField 'String', 'BASE_URL', '"http://www.wanandroid.com"'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

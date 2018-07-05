@@ -23,7 +23,7 @@ import com.trello.rxlifecycle2.components.support.RxFragment
 abstract class BaseFragment : RxFragment(), CommentHelper {
 
     var mFramApp: FrameApp = FrameApp.INSTANCE
-    val mHandler: Handler = Handler()
+    val handler: Handler = Handler()
     lateinit var rootView: View
 
     open fun getAc() = activity!!

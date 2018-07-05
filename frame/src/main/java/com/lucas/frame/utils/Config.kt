@@ -16,7 +16,7 @@ object Config {
     }
 
     //分页 每页数据个数
-    val PAGE_COUNT = 20
+    val PAGE_COUNT = 15
 
     //本地缓存大小
     val CACHE_SIZE: Long = 1024 * 1024 * 10

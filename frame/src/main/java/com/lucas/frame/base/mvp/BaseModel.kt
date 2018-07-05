@@ -91,7 +91,7 @@ open class BaseModel(val iView: IView<IBean>) : CommentHelper {
     private fun onRequestSuccess(data: Any) {
         iView.resetRecyclerAndRefresh()
         if (data is IBean)
-            when (data.status) {
+            when (data.errorCode) {
                 Config.Request.REQUEST_SUCCESS -> {
                     _success(data, requestMode)
                     disProgressSuccess()
@@ -106,7 +106,7 @@ open class BaseModel(val iView: IView<IBean>) : CommentHelper {
                 }
             }
         else {
-            //非 status msg 类型的json数据
+            //非 errorCode msg 类型的json数据
 //            _success(data, requestMode)
             disProgressSuccess()
         }
@@ -155,6 +155,18 @@ open class BaseModel(val iView: IView<IBean>) : CommentHelper {
                     _customError()
                 }
             }
+        else{
+            when (loadStyle) {
+                ProgressStyle.DIALOG -> {
+                    iView.hideProgress()
+                }
+                ProgressStyle.CUSTOM -> {
+                    _customError()
+                }
+                else -> {
+                }
+            }
+        }
     }
 
     //预加载view样式

@@ -529,10 +529,10 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
     }
 
     /**
-     * Sets the checked status of a checkable.
+     * Sets the checked errorCode of a checkable.
      *
      * @param viewId  The view id.
-     * @param checked The checked status;
+     * @param checked The checked errorCode;
      * @return The BaseViewHolder for chaining.
      */
     public BaseViewHolder setChecked(@IdRes int viewId, boolean checked) {

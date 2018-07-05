@@ -1,5 +1,6 @@
-package com.lucas.frame.base.view.activity
+package com.lucas.frame.base.view.fragment
 
+import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -14,33 +15,25 @@ import com.lucas.frame.base.mvp.IPresenter
 import com.lucas.frame.data.bean.IBean
 import com.lucas.frame.utils.Config
 
-/**
- * @package     com.lucas.frame.base.view.activity
- * @author      lucas
- * @date        2018/7/4
- * @version     V1.0
- * @describe    自带recycler view的基类
- *               Tips:布局中的recyclerView的id必须是frame_recycleView
- */
-abstract class BaseSwipeListActivity<P : IPresenter<*>, B : IBean, AB : Any> : BaseSwipeActivity<P, B>(),IListView<B> {
+abstract class BaseSwipeListFragment<P : IPresenter<*>, B : IBean, AB : Any> : BaseSwipeFragment<P, B>(), IListView<B> {
     lateinit var mRecyclerView: RecyclerView
     //当前分页
     var page = 1
     lateinit var mEmptyView: View
-    lateinit var mAdapter:BaseQuickAdapter<AB,BaseViewHolder>
+    lateinit var mAdapter: BaseQuickAdapter<AB, BaseViewHolder>
 
-    override fun initComment() {
-        super.initComment()
-        mRecyclerView = findViewById(R.id.frame_recycleView)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        val view = super.onCreateView(inflater, container, savedInstanceState)
+        mRecyclerView = view.findViewById(R.id.frame_recycleView)
         if (mRecyclerView == null) {
             throw RuntimeException("布局中必须有RecyclerView，并且RecyclerView中的ID为frame_recycleView")
         }
-        mRecyclerView.layoutManager = LinearLayoutManager(this)
+        mRecyclerView.layoutManager = LinearLayoutManager(getAc())
         mAdapter = getAdapter()
         mRecyclerView.adapter = mAdapter
-        mEmptyView = LayoutInflater.from(this).inflate(R.layout.frame_view_pager_no_data, mRecyclerView.parent as ViewGroup, false)
+        mEmptyView = LayoutInflater.from(getAc()).inflate(R.layout.frame_view_pager_no_data, mRecyclerView.parent as ViewGroup, false)
+        return view
     }
-
 
     override fun requestSuccess(data: B) {
 
@@ -74,7 +67,7 @@ abstract class BaseSwipeListActivity<P : IPresenter<*>, B : IBean, AB : Any> : B
                 //添加下来加载更多的监听
                 mAdapter.setOnLoadMoreListener({
                     loadMoreListRequest(page)
-                },mRecyclerView)
+                }, mRecyclerView)
                 page++
             }
             mAdapter.setNewData(data)

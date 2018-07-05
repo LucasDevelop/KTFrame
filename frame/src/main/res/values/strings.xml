@@ -5,7 +5,7 @@
     <string name="frame_request_error">无法访问网络,请检查您的网络状态</string>
 
     <string name="frame_load_failed">加载失败,点击重新加载</string>
-    <string name="frame_load_end">---  别扯了，没数据了  ---</string>
+    <string name="frame_load_end">---  我是有底线的  ---</string>
     <string name="frame_no_permission">暂无权限,是否开启权限</string>
     <string name="frame_view_net_error">当前网络环境较差请重新加载</string>
     <string name="frame_load_again">重新加载</string>

@@ -7,6 +7,6 @@ package com.lucas.frame.data.bean;
  */
 
 public class IBean {
-    public int status ;
-    public String message;
+    public int errorCode;
+    public String errorMsg;
 }

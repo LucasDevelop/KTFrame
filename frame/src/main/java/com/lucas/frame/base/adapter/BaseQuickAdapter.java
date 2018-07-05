@@ -427,7 +427,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
     }
 
     /**
-     * Returns the enabled status for load more.
+     * Returns the enabled errorCode for load more.
      *
      * @return True if load more is enabled, false otherwise.
      */
@@ -1553,7 +1553,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
      * @param helper A fully initialized helper.
      * @param item   The item that needs to be displayed.
      */
-    protected abstract void convert(K helper, T item);
+    protected abstract void convert(@NonNull K helper,@NonNull T item);
 
     /**
      * get the specific view by position,e.g. getViewByPosition(2, R.id.textView)
