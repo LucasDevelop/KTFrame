@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import com.lucas.frame.base.view.activity.BaseSwipeActivity
 import com.lucas.frame.data.bean.IBean
+import io.reactivex.Observable
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseSwipeActivity<MainPresenter, IBean>() {
@@ -18,16 +19,17 @@ class MainActivity : BaseSwipeActivity<MainPresenter, IBean>() {
         val mainAdapter = MainAdapter(R.layout.item_list)
         v_list.adapter = mainAdapter
 
-        mainAdapter.setNewData(arrayOf("aaa","bbbb","vvvv","wwwww","rrrrrr").toList())
+        mainAdapter.setNewData(arrayOf("aaa", "bbbb", "vvvv", "wwwww", "rrrrrr").toList())
+
     }
 
     override fun initData() {
         handler.postDelayed({
             v_text.text = "loading"
-        mPresenter.login()
-        },2000)
+            mPresenter.login()
+        }, 2000)
         v_text.setOnClickListener {
-            startActivity(Intent(this,RecyclerActivity::class.java))
+            startActivity(Intent(this, RecyclerActivity::class.java))
         }
     }
 
