@@ -9,18 +9,14 @@ import dagger.android.AndroidInjector
 import dagger.android.support.DaggerAppCompatActivity
 import dagger.android.support.DaggerApplication
 
-open class FrameApp : DaggerApplication() {
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication>?  {
-        return null
-    }
-
+ abstract class FrameApp : DaggerApplication() {
     var BASE_URL = BuildConfig.BASE_URL
     var gson = Gson()
     var handler = Handler()
     var bus = Bus()
 
     companion object {
-        var INSTANCE: FrameApp = FrameApp()
+        lateinit var INSTANCE: FrameApp
     }
 
     override fun onCreate() {

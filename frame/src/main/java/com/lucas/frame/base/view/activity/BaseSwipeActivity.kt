@@ -16,6 +16,7 @@ import com.lucas.frame.data.bean.IBean
 abstract class BaseSwipeActivity<P : IPresenter<*>, B : IBean> : BaseRequestActivity<P, B>(), SwipeRefreshLayout.OnRefreshListener {
 
     lateinit var mSwipeRefreshLayout: SwipeRefreshLayout
+
     //动态添加swipe refresh控件
     override fun initComment() {
         mSwipeRefreshLayout = SwipeRefreshLayout(this)
