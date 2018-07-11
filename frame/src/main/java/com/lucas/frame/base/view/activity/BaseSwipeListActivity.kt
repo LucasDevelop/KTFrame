@@ -41,7 +41,6 @@ abstract class BaseSwipeListActivity<P : IPresenter<*>, B : IBean, AB : Any> : B
         mEmptyView = LayoutInflater.from(this).inflate(R.layout.frame_view_pager_no_data, mRecyclerView.parent as ViewGroup, false)
     }
 
-
     override fun requestSuccess(data: B) {
 
     }
